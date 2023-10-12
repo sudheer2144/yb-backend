@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import { userRouter } from "./Routes/user-routes.js";
 import { blogRouter } from "./Routes/blog-routes.js";
+import dotenv from "dotenv";
 import cors from "cors";
 
 const app = express();
@@ -26,8 +27,11 @@ app.use("/api/blog", blogRouter);
 
 // app.use('/user/signup', router)
 
-const mongoURL =
-  "mongodb+srv://admin:4jBlWceJgASj8K3x@blogcluster.3im36in.mongodb.net/Blog?retryWrites=true&w=majority";
+dotenv.config();
+
+const mongoURL = process.env.MONGO_URL;
+
+// console.log(process.env.MONGO_URL);
 
 const connectToMongo = () => {
   try {
