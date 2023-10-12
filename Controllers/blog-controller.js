@@ -53,7 +53,9 @@ export const createBlog = async (req, res) => {
       .status(401)
       .json({ message: "Can't create blog at this moment." });
   }
-  return res.status(201).json({ message: "Created Successfully" });
+  return res
+    .status(201)
+    .json({ message: "Created Successfully", blogId: blog._id });
 };
 
 export const viewBlog = async (req, res) => {
