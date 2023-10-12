@@ -36,12 +36,12 @@ const mongoURL = process.env.MONGO_URL;
 const connectToMongo = () => {
   try {
     const res = mongoose.connect(mongoURL);
-    console.log("connected to database and listening to port 5000");
+    // console.log("connected to database and listening to port 5000");
   } catch (error) {
-    console.log("error");
+    // console.log("error");
   }
 };
 
 connectToMongo();
 
-app.listen(5000);
+app.listen(process.env.PORT);
